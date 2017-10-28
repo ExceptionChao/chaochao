@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE abatorConfiguration PUBLIC "-//Apache Software Foundation//DTD Abator for iBATIS Configuration 1.0//EN" "http://ibatis.apache.org/dtd/abator-config_1_0.dtd" >
+<abatorConfiguration >
+  <abatorContext >
+    <jdbcConnection driverClass="com.mysql.jdbc.Driver" connectionURL="jdbc:mysql://172.16.6.81:3306/community_app" userId="root" password="123456" >
+      <classPathEntry location="D:\workspace\workspace3.7\SHT2\APPServer\WebRoot\WEB-INF\lib\mysql-connector-java-5.1.25-bin.jar" />
+    </jdbcConnection>
+    <javaModelGenerator targetPackage="com.hiaward.ebs.appserver.model.mysql" targetProject="APPServer/appserver/main" />
+    <sqlMapGenerator targetPackage="com.hiaward.ebs.appserver.dbmap.mysql" targetProject="APPServer/appserver/resource" />
+    <daoGenerator targetPackage="com.hiaward.ebs.appserver.dao" targetProject="APPServer/appserver/main" type="SPRING" />
+    <table schema="community_app" tableName="base_device" >
+      <!--<columnOverride column="???" property="???" />-->
+    </table>
+  </abatorContext>
+</abatorConfiguration>

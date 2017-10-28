@@ -1,0 +1,16 @@
+<!-- <?xml version="1.0" encoding="UTF-8"?> -->
+<!-- <beans xmlns="http://www.springframework.org/schema/beans" -->
+<!--     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:dubbo="http://code.alibabatech.com/schema/dubbo" -->
+<!--     xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd -->
+<!--     http://code.alibabatech.com/schema/dubbo http://code.alibabatech.com/schema/dubbo/dubbo.xsd"> -->
+		<!-- 服务方-->
+<!-- 		<dubbo:application name="babasport-portal"/> -->
+		<!-- 连接zookeeper -->
+<!-- 		<dubbo:registry address="172.16.6.81:2181" protocol="zookeeper"/> -->
+<!-- 		<dubbo:registry address="N/A"/> -->
+		<!-- 调用接口-->
+<!-- 		<dubbo:reference interface="cn.core.service.SolrService" id="solrService" url="dubbo://127.0.0.1:20880" /> -->
+		<!-- 全局设置超时时间 10分钟-->
+<!-- 		<dubbo:consumer timeout="600000" check="false"/> -->
+		
+<!-- </beans> -->

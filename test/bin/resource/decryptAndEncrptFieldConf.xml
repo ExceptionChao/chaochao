@@ -1,0 +1,695 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+
+	<!-- 算法与对应处理类bean映射 -->
+	<algorithm2beanId>
+		<RSA beanid="RSAalgorithmSupport" />
+		<DES beanid="DESalgorithmSupport" />
+	</algorithm2beanId>
+	
+	<!-- 接口字段加解密描述 -->
+	<interface name="/movie/movieQuery">
+		<!-- 从app到后台请求过程中需要解密app Data，有可能需要加密字段后再往后台传值 -->
+		<request>
+			<!-- 解密描述 -->
+			<decrypt>
+			<!-- 请求中token参数名配置，只需在fields配置，无需建立field子节点 -->
+					<!--  <fields token="token">
+							<field name="cityId" algorithm="DES"></field>
+						  </fields>
+				-->
+			</decrypt>
+			<!-- 时间关系，暂时不实现 -->
+			<encrypt>
+			</encrypt>
+		</request>
+		<!-- 从后台相应app请求过程中需要加密相应数据，有可能需要解密后台传过来的数据 -->
+		<response>
+			<encrypt>
+				<fields>
+					<!-- <field name="movieId" algorithm="DES"></field> -->
+				</fields>
+			</encrypt>
+			
+			<!-- 时间关系，暂时不实现 -->
+			<decrypt>
+			</decrypt>
+		</response>
+	</interface>
+	
+	<interface name="/rrb/ReqThreeWebUrl">
+		<!-- 从app到后台请求过程中需要解密app Data，有可能需要加密字段后再往后台传值 -->
+		<request>
+			<!-- 解密描述 -->
+			<decrypt>
+			<!-- 请求中token参数名配置，只需在fields配置，无需建立field子节点 -->
+				<fields token="token">
+					<field name="uid" algorithm="DES"></field>
+				</fields>
+			</decrypt>
+			<!-- 时间关系，暂时不实现 -->
+			<encrypt>
+			</encrypt>
+		</request>
+		<!-- 从后台相应app请求过程中需要加密相应数据，有可能需要解密后台传过来的数据 -->
+		<response>
+			<encrypt>
+				<fields>
+					<field name="url" algorithm="DES"></field>
+				</fields>
+			</encrypt>
+			
+			<!-- 时间关系，暂时不实现 -->
+			<decrypt>
+			</decrypt>
+		</response>
+	</interface>
+	
+	<!-- 接口字段加解密描述 -->
+	<interface name="/token/transTokenInterfaceName">
+		<request>
+			<decrypt>
+			</decrypt>
+
+			<encrypt>
+			</encrypt>
+		</request>
+
+		<response>
+			<encrypt>
+				<fields>
+					<!-- <field name="movieId" algorithm="DES"></field> -->
+				</fields>
+			</encrypt>
+			
+			<decrypt>
+			</decrypt>
+		</response>
+	</interface>
+	
+	<interface name="/npp/YL03">
+		<!-- 从app到后台请求过程中需要解密app Data，有可能需要加密字段后再往后台传值 -->
+		<request>
+			<!-- 解密描述 -->
+			<decrypt>
+			<!-- 请求中token参数名配置，只需在fields配置，无需建立field子节点 -->
+				<fields token="token">
+					<field name="voucherPwd" algorithm="DES"></field>
+				</fields>
+			</decrypt>
+		<!-- 时间关系，暂时不实现 -->
+		<encrypt>
+		</encrypt>
+		</request>
+		<!-- 从后台相应app请求过程中需要加密相应数据，有可能需要解密后台传过来的数据 -->
+		<response>
+			<encrypt>
+			</encrypt>
+			<!-- 时间关系，暂时不实现 -->
+			<decrypt>
+			</decrypt>
+		</response>
+	</interface>
+	
+	<!-- 缴费单销账-缴费下单 -->
+	<interface name="/npp/YL09">
+		<request>
+			<decrypt>
+				<fields token="token">
+					<field name="billKey" algorithm="DES"></field>
+					<field name="companyId" algorithm="DES"></field>
+					<field name="payAmount" algorithm="DES"></field>
+					<field name="uid" algorithm="DES"></field>
+					<field name="merOrderAmt" algorithm="DES"></field>
+					<field name="merOrderBankCode" algorithm="DES"></field>
+					<field name="merOrderCdFlag" algorithm="DES"></field>
+					<field name="callBackMethod" algorithm="DES"></field>
+				</fields>
+			</decrypt>
+
+			<encrypt>
+
+			</encrypt>
+		</request>
+
+		<response>
+			<encrypt>
+				<fields>
+					<field name="fromSysCode" algorithm="DES"></field>
+					<field name="merId" algorithm="DES"></field>
+					<field name="merPlatClearAcct" algorithm="DES"></field>
+					<field name="uid" algorithm="DES"></field>
+					<field name="merOrderId" algorithm="DES"></field>
+					<field name="merOrderTime" algorithm="DES"></field>
+					<field name="merOrderPeriod" algorithm="DES"></field>
+					<field name="merOrderAmt" algorithm="DES"></field>
+					<field name="merOrderBankCode" algorithm="DES"></field>
+					<field name="merOrderCdFlag" algorithm="DES"></field>
+					<field name="merOrderCurType" algorithm="DES"></field>
+					<field name="merOrderTranType" algorithm="DES"></field>
+					<field name="merOrderCdFlag" algorithm="DES"></field>
+					<field name="merOrderBrief" algorithm="DES"></field>
+					<field name="provinceCode" algorithm="DES"></field>
+					<field name="cityCode" algorithm="DES"></field>
+					<field name="remark" algorithm="DES"></field>
+					<field name="extMsg" algorithm="DES"></field>
+					<field name="callBackMethod" algorithm="DES"></field>
+					<field name="asynNotifyUrl" algorithm="DES"></field>
+					<field name="reqTime" algorithm="DES"></field>
+				</fields>
+			</encrypt>
+
+			<decrypt>
+				
+			</decrypt>
+		</response>
+	</interface>
+
+	<!-- 缴费单销账-销账支付 -->
+	<interface name="/npp/YL10">
+		<request>
+			<decrypt>
+				<fields token="token">
+					<field name="merId" algorithm="DES"></field>
+					<field name="merOrderId" algorithm="DES"></field>
+					<field name="merOrderTime" algorithm="DES"></field>
+					<field name="merOrderAmt" algorithm="DES"></field>
+					<field name="merOrderActPayAmt" algorithm="DES"></field>
+					<field name="merOrderPoundage" algorithm="DES"></field>
+					<field name="platPayFlowNo" algorithm="DES"></field>
+					<field name="checkDate" algorithm="DES"></field>
+					<field name="merOrderPayState" algorithm="DES"></field>
+				</fields>
+			</decrypt>
+
+			<encrypt>
+
+			</encrypt>
+		</request>
+
+		<response>
+			<encrypt>
+				
+			</encrypt>
+
+			<decrypt>
+
+			</decrypt>
+		</response>
+	</interface>
+	
+	<interface name="/txl/handleAddressBook">
+		<!-- 从app到后台请求过程中需要解密app Data，有可能需要加密字段后再往后台传值 -->
+		<request>
+			<!-- 解密描述 -->
+			<decrypt>
+			<!-- 请求中token参数名配置，只需在fields配置，无需建立field子节点 -->
+				<fields token="token">
+					<field name="telephone" algorithm="DES"></field>
+					<field name="name" algorithm="DES"></field>
+					<field name="identify" algorithm="DES"></field>
+					<field name="postCode" algorithm="DES"></field>
+					<field name="address" algorithm="DES"></field>
+					<field name="uid" algorithm="DES"></field>
+				</fields>
+			</decrypt>
+		<!-- 时间关系，暂时不实现 -->
+		<encrypt>
+		</encrypt>
+		</request>
+		<!-- 从后台相应app请求过程中需要加密相应数据，有可能需要解密后台传过来的数据 -->
+		<response>
+			<encrypt>
+	
+			</encrypt>
+		
+		<!-- 时间关系，暂时不实现 -->
+		<decrypt>
+		</decrypt>
+		</response>
+	</interface>
+	
+	<!-- 生成业务系统访问url -->
+	<interface name="/online/getBsnSysAccessUrl">
+		<request>
+			<decrypt>
+				<fields token="token">
+					<field name="toSysCode" algorithm="DES"></field>
+				</fields>
+			</decrypt>
+			
+			<encrypt>
+			</encrypt>
+		</request>
+
+		<response>
+			<encrypt>
+				<fields>
+					<field name="url" algorithm="DES"></field>
+				</fields>
+			</encrypt>
+			
+			<decrypt>
+			</decrypt>
+		</response>
+	</interface>
+	
+	<!-- 生成用户登录信息 -->
+	<interface name="/online/generateUserLoginInfo">
+		<request>
+			<decrypt>
+				<fields token="token">
+					<field name="uid" algorithm="DES"></field>
+					<field name="account" algorithm="DES"></field>
+					<field name="fromSysCode" algorithm="DES"></field>
+					<field name="isLogin" algorithm="DES"></field>
+					<field name="callBackMethod" algorithm="DES"></field>
+					<field name="isForceLogin" algorithm="DES"></field>
+					<field name="timestamp" algorithm="DES"></field>
+				</fields>
+			</decrypt>
+			
+			<encrypt>
+			</encrypt>
+		</request>
+
+		<response>
+			<encrypt>
+				<fields>
+					<field name="fromSysCode" algorithm="DES"></field>
+					<field name="isLogin" algorithm="DES"></field>
+					<field name="account" algorithm="DES"></field>
+					<field name="uid" algorithm="DES"></field>
+					<field name="timestamp" algorithm="DES"></field>
+				</fields>
+			</encrypt>
+			
+			<decrypt>
+			</decrypt>
+		</response>
+	</interface>
+	
+	<!-- App首页菜单展现 -->
+	<interface name="/get_menu_list/getAppHomePageShowMenu">
+		<request>
+			<decrypt>
+				<fields token="token">
+					<field name="uid" algorithm="DES"></field>
+					<field name="cityId" algorithm="DES"></field>
+					<field name="reqAppInfo" algorithm="DES"></field>
+				</fields>
+			</decrypt>
+			
+			<encrypt>
+			</encrypt>
+		</request>
+
+		<response>
+			<encrypt>
+				<fields>
+					<field name="itemTypeCode" algorithm="DES"></field>
+					<field name="imgUrl" algorithm="DES"></field>
+					<field name="skipUrl" algorithm="DES"></field>
+					<field name="thumb" algorithm="DES"></field>
+					<field name="url" algorithm="DES"></field>
+				</fields>
+			</encrypt>
+			
+			<decrypt>
+			</decrypt>
+		</response>
+	</interface>
+	
+	<!-- 查询银行卡号所属银行信息 -->
+	<interface name="/pay/qryBankCardBankInfo">
+		<request>
+			<decrypt>
+				<fields token="token">
+					<field name="bankCardNo" algorithm="DES"></field>
+				</fields>
+			</decrypt>
+			
+			<encrypt>
+			</encrypt>
+		</request>
+
+		<response>
+			<encrypt>
+				<fields>
+					<field name="bankCode" algorithm="DES"></field>
+					<field name="bankName" algorithm="DES"></field>
+					<field name="bankCardType" algorithm="DES"></field>
+					<field name="bankIconUrl" algorithm="DES"></field>
+				</fields>
+			</encrypt>
+			
+			<decrypt>
+			</decrypt>
+		</response>
+	</interface>
+	
+	<!-- 查询用户绑卡信息 -->
+	<interface name="/pay/qryUserBindBankCardList">
+		<request>
+			<decrypt>
+				<fields token="token">
+					<field name="uid" algorithm="DES"></field>
+					<field name="merId" algorithm="DES"></field>
+					<field name="merOrderId" algorithm="DES"></field>
+					<field name="userToken" algorithm="DES"></field>
+					<field name="fromSysCode" algorithm="DES"></field>
+				</fields>
+			</decrypt>
+			<encrypt>
+			</encrypt>
+		</request>
+		<response>
+			<encrypt>
+				<fields>
+					<field name="bindBankCardId" algorithm="DES"></field>
+					<field name="bankCardNo" algorithm="DES"></field>
+					<field name="bankCode" algorithm="DES"></field>
+					<field name="bankName" algorithm="DES"></field>
+					<field name="bankAcctCdFlag" algorithm="DES"></field>
+					<field name="bindMobile" algorithm="DES"></field>
+					<field name="bankIconUrl" algorithm="DES"></field>
+					<field name="bankCardState" algorithm="DES"></field>
+				</fields>
+			</encrypt>
+			
+			<decrypt>
+			</decrypt>
+		</response>
+	</interface>
+	
+	<!-- 支付下单 -->
+	<interface name="/pay/receivePayOrder">
+		<request>
+			<decrypt>
+				<fields token="token">
+					<field name="uid" algorithm="DES"></field>
+					<field name="userToken" algorithm="DES"></field>
+					<field name="fromSysCode" algorithm="DES"></field>
+					<field name="merId" algorithm="DES"></field>
+					<field name="merPlatClearAcct" algorithm="DES"></field>
+					<field name="merOrderId" algorithm="DES"></field>
+					<field name="merOrderTime" algorithm="DES"></field>
+					<field name="merOrderIp" algorithm="DES"></field>
+					<field name="merOrderPeriod" algorithm="DES"></field>
+					<field name="merOrderAmt" algorithm="DES"></field>
+					<field name="merOrderCurType" algorithm="DES"></field>
+					<field name="merOrderTranType" algorithm="DES"></field>
+					<field name="merOrderCdFlag" algorithm="DES"></field>
+					<field name="merOrderBankCode" algorithm="DES"></field>
+					<field name="merOrderBrief" algorithm="DES"></field>
+					<field name="provinceCode" algorithm="DES"></field>
+					<field name="cityCode" algorithm="DES"></field>
+					<field name="remark" algorithm="DES"></field>
+					<field name="extMsg" algorithm="DES"></field>
+					<field name="callBackMethod" algorithm="DES"></field>
+					<field name="asynNotifyUrl" algorithm="DES"></field>
+					<field name="reqTime" algorithm="DES"></field>
+				</fields>
+			</decrypt>
+			
+			<encrypt>
+			</encrypt>
+		</request>
+
+		<response>
+			<encrypt>
+				<fields>
+					<field name="platPayFlowNo" algorithm="DES"></field>
+				</fields>
+			</encrypt>
+			
+			<decrypt>
+			</decrypt>
+		</response>
+	</interface>
+	
+	<!-- 支付签约 -->
+	<interface name="/pay/paySign">
+		<request>
+			<decrypt>
+				<fields token="token">
+					<field name="uid" algorithm="DES"></field>
+					<field name="userToken" algorithm="DES"></field>
+					<field name="platPayFlowNo" algorithm="DES"></field>
+					<field name="payTypeCode" algorithm="DES"></field>
+					<field name="payCdFlag" algorithm="DES"></field>
+					<field name="payBankCode" algorithm="DES"></field>
+					<field name="payCardNo" algorithm="DES"></field>
+					<field name="payAcctName" algorithm="DES"></field>
+					<field name="payBindMobile" algorithm="DES"></field>
+					<field name="payValiDate" algorithm="DES"></field>
+					<field name="payCvv2" algorithm="DES"></field>
+					<field name="payIdType" algorithm="DES"></field>
+					<field name="payIdNo" algorithm="DES"></field>
+					<field name="bindBankCardId" algorithm="DES"></field>
+				</fields>
+			</decrypt>
+			
+			<encrypt>
+			</encrypt>
+		</request>
+
+		<response>
+			<encrypt>
+				<fields>
+					<field name="platPayFlowNo" algorithm="DES"></field>
+					<field name="merOrderAmt" algorithm="DES"></field>
+					<field name="merOrderActPayAmt" algorithm="DES"></field>
+				</fields>
+			</encrypt>
+			
+			<decrypt>
+			</decrypt>
+		</response>
+	</interface>
+	
+	<!-- 短信重发-->
+	<interface name="/pay/reSendPayVerifyCode">
+		<request>
+			<decrypt>
+				<fields token="token">
+					<field name="uid" algorithm="DES"></field>
+					<field name="userToken" algorithm="DES"></field>
+					<field name="platPayFlowNo" algorithm="DES"></field>
+				</fields>
+			</decrypt>
+			
+			<encrypt>
+			</encrypt>
+		</request>
+
+		<response>
+			<encrypt>
+			</encrypt>
+			
+			<decrypt>
+			</decrypt>
+		</response>
+	</interface>
+	
+	<!-- 支付校验 -->
+	<interface name="/pay/payCheck">
+		<request>
+			<decrypt>
+				<fields token="token">
+					<field name="uid" algorithm="DES"></field>
+					<field name="userToken" algorithm="DES"></field>
+					<field name="platPayFlowNo" algorithm="DES"></field>
+					<field name="reqAppInfo" algorithm="DES"></field>
+					<field name="verifyCode" algorithm="DES"></field>
+				</fields>
+			</decrypt>
+			
+			<encrypt>
+			</encrypt>
+		</request>
+
+		<response>
+			<encrypt>
+				<fields>
+					<field name="merId" algorithm="DES"></field>
+					<field name="merOrderId" algorithm="DES"></field>
+					<field name="merOrderTime" algorithm="DES"></field>
+					<field name="merOrderAmt" algorithm="DES"></field>
+					<field name="merOrderActPayAmt" algorithm="DES"></field>
+					<field name="merOrderPoundage" algorithm="DES"></field>
+					<field name="platPayFlowNo" algorithm="DES"></field>
+					<field name="checkDate" algorithm="DES"></field>
+					<field name="merOrderPayState" algorithm="DES"></field>
+				</fields>
+			</encrypt>
+			
+			<decrypt>
+			</decrypt>
+		</response>
+	</interface>
+	
+	<!-- 银行卡解绑 -->
+<!-- 	<interface name="/pay/unbindBankCard"> -->
+<!-- 		<request> -->
+<!-- 			<decrypt> -->
+<!-- 				<fields token="token"> -->
+<!-- 					<field name="uid" algorithm="DES"></field> -->
+<!-- 					<field name="userToken" algorithm="DES"></field> -->
+<!-- 					<field name="fromSysCode" algorithm="DES"></field> -->
+<!-- 					<field name="bindBankCardId" algorithm="DES"></field> -->
+<!-- 				</fields> -->
+<!-- 			</decrypt> -->
+			
+<!-- 			<encrypt> -->
+<!-- 			</encrypt> -->
+<!-- 		</request> -->
+
+<!-- 		<response> -->
+<!-- 			<encrypt> -->
+<!-- 			</encrypt> -->
+			
+<!-- 			<decrypt> -->
+<!-- 			</decrypt> -->
+<!-- 		</response> -->
+<!-- 	</interface> -->
+	
+	<!-- 查询商户订单支持的银行列表 -->
+	<interface name="/pay/qryOrderSupBankList">
+		<request>
+			<decrypt>
+				<fields token="token">
+					<field name="platPayFlowNo" algorithm="DES"></field>
+				</fields>
+			</decrypt>
+			
+			<encrypt>
+			</encrypt>
+		</request>
+
+		<response>
+			<encrypt>
+				<fields>
+					<field name="bankCode" algorithm="DES"></field>
+					<field name="bankName" algorithm="DES"></field>
+					<field name="bankAcctCdFlag" algorithm="DES"></field>
+					<field name="bankIconUrl" algorithm="DES"></field>
+				</fields>
+			</encrypt>
+			
+			<decrypt>
+			</decrypt>
+		</response>
+	</interface>
+	
+	<!-- 创建订单(电影票) -->
+	<interface name="/pay/createOrder">
+		<request>
+			<decrypt>
+				<fields token="token">
+					<field name="userId" algorithm="DES"></field>
+					<field name="userName" algorithm="DES"></field>
+					<field name="mobile" algorithm="DES"></field>
+					<field name="originalPrice" algorithm="DES"></field>
+					<field name="salePrice" algorithm="DES"></field>
+					<field name="userMobile" algorithm="DES"></field>
+				</fields>
+			</decrypt>
+			
+			<encrypt>
+			</encrypt>
+		</request>
+
+		<response>
+			<encrypt>
+				<fields>
+					<field name="uid" algorithm="DES"></field>
+					<field name="merId" algorithm="DES"></field>
+					<field name="merPlatClearAcct" algorithm="DES"></field>
+					<field name="merOrderId" algorithm="DES"></field>
+					<field name="merOrderTime" algorithm="DES"></field>
+					<field name="merOrderPeriod" algorithm="DES"></field>
+					<field name="merOrderAmt" algorithm="DES"></field>
+					<field name="merOrderCurType" algorithm="DES"></field>
+					<field name="merOrderTranType" algorithm="DES"></field>
+					<field name="merOrderCdFlag" algorithm="DES"></field>
+					<field name="merOrderBrief" algorithm="DES"></field>
+					<field name="merOrderBankCode" algorithm="DES"></field>
+					<field name="salesOrderNo" algorithm="DES"></field>
+					<field name="callBackMethod" algorithm="DES"></field>
+					<field name="fromSysCode" algorithm="DES"></field>
+					<field name="asynNotifyUrl" algorithm="DES"></field>
+					<field name="provinceCode" algorithm="DES"></field>
+					<field name="cityCode" algorithm="DES"></field>
+					<field name="remark" algorithm="DES"></field>
+					<field name="extMsg" algorithm="DES"></field>
+					<field name="reqTime" algorithm="DES"></field>
+				</fields>
+			</encrypt>
+			
+			<decrypt>
+			</decrypt>
+		</response>
+	</interface>
+	
+	<!-- 异步通知(电影票) -->
+	<interface name="/pay/payOrderConfirm">
+		<request>
+			<decrypt>
+				<fields token="token">
+					<field name="checkDate" algorithm="DES"></field>
+					<field name="merId" algorithm="DES"></field>
+					<field name="merOrderActPayAmt" algorithm="DES"></field>
+					<field name="merOrderAmt" algorithm="DES"></field>
+					<field name="merOrderId" algorithm="DES"></field>
+					<field name="merOrderPayState" algorithm="DES"></field>
+					<field name="merOrderPoundage" algorithm="DES"></field>
+					<field name="merOrderTime" algorithm="DES"></field>
+					<field name="platPayFlowNo" algorithm="DES"></field>
+				</fields>
+			</decrypt>
+			
+			<encrypt>
+			</encrypt>
+		</request>
+
+		<response>
+			<encrypt>
+			</encrypt>
+			
+			<decrypt>
+			</decrypt>
+		</response>
+	</interface>
+	
+	<!-- 通用异步通知(商圈) -->
+	<interface name="/bip/PTCommonAsynNotify">
+		<request>
+			<decrypt>
+				<fields token="token">
+					<field name="merId" algorithm="DES"></field>
+					<field name="merOrderId" algorithm="DES"></field>
+					<field name="merOrderTime" algorithm="DES"></field>
+					<field name="merOrderAmt" algorithm="DES"></field>
+					<field name="merOrderActPayAmt" algorithm="DES"></field>
+					<field name="merOrderPoundage" algorithm="DES"></field>
+					<field name="platPayFlowNo" algorithm="DES"></field>
+					<field name="checkDate" algorithm="DES"></field>
+					<field name="merOrderPayState" algorithm="DES"></field>
+				</fields>
+			</decrypt>
+			
+			<encrypt>
+			</encrypt>
+		</request>
+
+		<response>
+			<encrypt>
+			</encrypt>
+			
+			<decrypt>
+			</decrypt>
+		</response>
+	</interface>
+	
+</root>
